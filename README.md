@@ -35,7 +35,11 @@ Installation
 * To install SSPAM:
 
 ```
-$ sudo python setup.py install
+# regular install
+python setup.py install --user
+
+# for dev
+python setup.py develop --user
 ```
 
 Using sspam

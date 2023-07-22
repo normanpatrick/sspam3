@@ -290,19 +290,19 @@ class ReplaceBitwiseOp(ast.NodeTransformer):
         self.generic_visit(node)
         if isinstance(node.op, ast.BitAnd):
             return ast.Call(ast.Name('mand', ast.Load()),
-                            [node.left, node.right], [], None, None)
+                            [node.left, node.right], [])
         if isinstance(node.op, ast.BitOr):
             return ast.Call(ast.Name('mor', ast.Load()),
-                            [node.left, node.right], [], None, None)
+                            [node.left, node.right], [])
         if isinstance(node.op, ast.BitXor):
             return ast.Call(ast.Name('mxor', ast.Load()),
-                            [node.left, node.right], [], None, None)
+                            [node.left, node.right], [])
         if isinstance(node.op, ast.LShift):
             return ast.Call(ast.Name('mlshift', ast.Load()),
-                            [node.left, node.right], [], None, None)
+                            [node.left, node.right], [])
         if isinstance(node.op, ast.RShift):
             return ast.Call(ast.Name('mrshift', ast.Load()),
-                            [node.left, node.right], [], None, None)
+                            [node.left, node.right], [])
         return node
 
     def visit_UnaryOp(self, node):
