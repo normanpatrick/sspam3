@@ -42,6 +42,13 @@ python setup.py install --user
 python setup.py develop --user
 ```
 
+* `graphviz` is needed to run `pytest` test cases.
+
+```
+# On Ubuntu or any Debian based distro
+apt-get install libgraphviz-dev
+```
+
 Using sspam
 ------------
 

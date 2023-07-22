@@ -14,7 +14,7 @@ from sspam.tools.flattening import Flattening
 testops = [
     ('a + b', """strict digraph {
 \tgraph [rankdir=TB];
-\tnode [label="\N"];
+\tnode [label="\\N"];
 \t9607807567	 [label="+"];
 \t9607807567 -> a;
 \t9607807567 -> b;
@@ -22,7 +22,7 @@ testops = [
 """),
     ('a & b', """strict digraph {
 \tgraph [rankdir=TB];
-\tnode [label="\N"];
+\tnode [label="\\N"];
 \t9607807567	 [label="&#8743;"];
 \t9607807567 -> a;
 \t9607807567 -> b;
@@ -30,7 +30,7 @@ testops = [
 """),
     ("~a", """strict digraph {
 \tgraph [rankdir=TB];
-\tnode [label="\N"];
+\tnode [label="\\N"];
 \t9607807567	 [label="&#172;"];
 \t9607807567 -> a;
 }
