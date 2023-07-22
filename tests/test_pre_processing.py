@@ -9,7 +9,7 @@
 import unittest
 
 from sspam import pre_processing
-import templates
+from . import templates
 
 
 class TestShiftMult(templates.AstCompCase):

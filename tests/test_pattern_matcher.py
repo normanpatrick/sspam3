@@ -14,7 +14,7 @@ import unittest
 from sspam import pattern_matcher, pre_processing
 from sspam.tools import asttools
 from sspam.tools.flattening import Flattening
-from templates import PatternMatcherTest
+from .templates import PatternMatcherTest
 
 
 class TestPatternMatcher(PatternMatcherTest):

@@ -230,7 +230,7 @@ class ConstFolding(ast.NodeTransformer):
             ast.fix_missing_locations(fake_node)
             code = compile(fake_node, '<constant folding>', 'eval')
             obj_env = globals().copy()
-            exec code in obj_env
+            exec(code, obj_env)
             value = eval(code, obj_env)
 
             new_node = ast.Num(value)
@@ -254,7 +254,7 @@ class ConstFolding(ast.NodeTransformer):
         ast.fix_missing_locations(fake_node)
         code = compile(fake_node, '<constant folding>', 'eval')
         obj_env = globals().copy()
-        exec code in obj_env
+        exec(code, obj_env)
         value = eval(code, obj_env)
 
         new_node = ast.Num(value)
@@ -270,7 +270,7 @@ class ConstFolding(ast.NodeTransformer):
             ast.fix_missing_locations(fake_node)
             code = compile(fake_node, '<constant folding>', 'eval')
             obj_env = globals().copy()
-            exec code in obj_env
+            exec(code, obj_env)
 
             value = eval(code, obj_env)
             new_node = ast.Num(value)

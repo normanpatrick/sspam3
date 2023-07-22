@@ -19,7 +19,7 @@ def main(args=None):
     parser.add_argument("-n", dest="nbits", type=int,
                         help="number of bits of the variables (default is 8)")
     args = parser.parse_args()
-    print simplifier.simplify(args.expr, args.nbits)
+    print(simplifier.simplify(args.expr, args.nbits))
 
 
 if __name__ == "__main__":

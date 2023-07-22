@@ -570,9 +570,9 @@ if __name__ == '__main__':
     test = "f(g(x + x) + 3 + 4)"
     repl = "A & B"
 
-    print match(test, patt_string)
-    print "-"*80
+    print(match(test, patt_string))
+    print("-"*80)
     out = replace(test, patt_string, repl)
-    print ast.dump(out)
+    print(ast.dump(out))
     out = Unflattening().visit(out)
-    print astunparse.unparse(out)
+    print(astunparse.unparse(out))

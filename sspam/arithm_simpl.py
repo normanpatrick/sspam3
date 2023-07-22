@@ -44,7 +44,7 @@ def run(expr_ast, nbits):
     try:
         expr_ast = ast.parse(str(eval_expr))
     except SyntaxError as ex:
-        print ex
+        print(ex)
         exit(1)
 
     expr_ast = asttools.ReplaceBitwiseFunctions().visit(expr_ast)

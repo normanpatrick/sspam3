@@ -6,7 +6,7 @@ import unittest
 import os
 
 from sspam import simplifier
-from templates import SimplifierTest
+from .templates import SimplifierTest
 
 
 class TestSimplifierLong(SimplifierTest):

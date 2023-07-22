@@ -11,4 +11,4 @@ cse0Add11 = ((((cse0BitAnd4 + (-1 * (cse0Add9 & 255))) + cse0BitAnd4) * 103) + 1
 result = ((237 * ((((cse0Add11 * 45) + (((cse0Add11 * 174) | 34) * 229)) + 194) - 247)) & 255)
 """
 
-print simplifier.simplify(xor5c)
+print(simplifier.simplify(xor5c))

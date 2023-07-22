@@ -16,7 +16,7 @@ import unittest
 
 from sspam.tools import asttools
 from sspam.tools.flattening import Flattening
-import templates
+from . import templates
 
 
 class TestGetIdentifiers(unittest.TestCase):
@@ -31,8 +31,8 @@ class TestGetIdentifiers(unittest.TestCase):
             geti.reset()
             inast = ast.parse(instring)
             geti.visit(inast)
-            self.assertEquals(geti.variables, varref)
-            self.assertEquals(geti.functions, funref)
+            self.assertEqual(geti.variables, varref)
+            self.assertEqual(geti.functions, funref)
 
     def test_basics_vars(self):
         'Simple tests for variables of GetIdentifiers'
@@ -105,7 +105,7 @@ class TestConstFolding(unittest.TestCase):
                    "2*230": ["204", 8], "2 - 4": ["254", 8],
                    "- (3*45)": ["4294967161", 32],
                    "(3 + x)*2 + 4": ["(3 + x)*2 + 4", 64]}
-        for origstring, [refstring, nbits] in corresp.iteritems():
+        for origstring, [refstring, nbits] in corresp.items():
             self.generic_ConstFolding(origstring, refstring, nbits)
 
     def test_flattened_ast(self):
@@ -113,7 +113,7 @@ class TestConstFolding(unittest.TestCase):
         corresp = {"(x + 3) + 2": ["x + 5", 8],
                    "((x ^ 14) ^ 234) ^ 48": ["x ^ 212", 8],
                    "42*34*y*z": ["1428*y*z", 16]}
-        for origstring, [refstring, nbits] in corresp.iteritems():
+        for origstring, [refstring, nbits] in corresp.items():
             self.generic_ConstFolding(origstring, refstring, nbits, True)
 
 
@@ -154,7 +154,7 @@ class TestGetConstMod(templates.AstCompCase):
         'Simple tests for GetConstMod'
         corresp = {"34": ["2", 4], "356 + x": ["100 + x", 8],
                    "75901*y + 456": ["10365*y + 456", 16]}
-        for origstring, [refstring, nbits] in corresp.iteritems():
+        for origstring, [refstring, nbits] in corresp.items():
             transformer = asttools.GetConstMod(nbits)
             self.generic_AstCompTest(origstring, refstring, transformer)
 

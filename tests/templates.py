@@ -42,7 +42,7 @@ class AstVisitorCase(unittest.TestCase):
         'Generic test for comparison of NodeVisitor results'
 
         if len(args) != 2 and len(args) != 3:
-            print args
+            print(args)
             raise Exception("generic_AstVisitorTest should be " +
                             "called with 3 or 4 arguments")
 
@@ -56,7 +56,7 @@ class AstVisitorCase(unittest.TestCase):
             ref = ast.parse(refstring)
             visitor.visit(ref)
             out = visitor.result
-            self.assertEquals(out, results)
+            self.assertEqual(out, results)
             visitor.reset()
 
 

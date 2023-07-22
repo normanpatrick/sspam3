@@ -15,12 +15,12 @@ cse2Add13 = ((-1 * ((((cse4Add8 + cse0Mult7) * 2) + 137) & 146)) + cse0Mult7)
 # result = ((237 * ((((cse7Add16 + (((((-1 * ((((cse7Add16 + cse0Sub2) * 2) + 68) & 158)) + cse0BitAnd3) - cse0BitAnd2) - cse0BitAnd1) - cse3Add3)) * 229) + 12) - 247)) & 255)
 """
 
-print simplifier.simplify(xor36)
+print(simplifier.simplify(xor36))
 
 
 # this rule helps a bit :
 
 custom_rules = [("2*(A ^ 127)", "2*(~A)")]
 
-print simplifier.simplify(xor36, custom_rules=custom_rules)
+print(simplifier.simplify(xor36, custom_rules=custom_rules))
 

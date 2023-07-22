@@ -5,7 +5,7 @@
 import os
 import unittest
 
-from templates import SimplifierTest
+from .templates import SimplifierTest
 
 
 class TestSimplifier(SimplifierTest):

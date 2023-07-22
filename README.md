@@ -55,7 +55,7 @@ Or in a python script:
 ```
 from sspam import simplifier
 
-print simplifier.simplify("(x & y) + (x | y)")
+print(simplifier.simplify("(x & y) + (x | y)"))
 ```
 
 You'll see a few examples of utilisation of sspam in the examples/

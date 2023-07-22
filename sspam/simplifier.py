@@ -85,11 +85,11 @@ class Simplifier(ast.NodeTransformer):
         expr_ast = arithm_simpl.run(expr_ast, nbits)
         expr_ast = asttools.GetConstMod(self.nbits).visit(expr_ast)
         if DEBUG:
-            print "arithm simpl: "
-            print unparse(expr_ast)
+            print("arithm simpl: ")
+            print(unparse(expr_ast))
         if DEBUG:
-            print "before matching: "
-            print unparse(expr_ast)
+            print("before matching: ")
+            print(unparse(expr_ast))
         expr_ast = all_preprocessings(expr_ast, self.nbits)
         # only flattening ADD nodes because of traditionnal MBA patterns
         expr_ast = Flattening(ast.Add).visit(expr_ast)
@@ -98,14 +98,14 @@ class Simplifier(ast.NodeTransformer):
             new_ast = rep.visit(deepcopy(expr_ast))
             if not asttools.Comparator().visit(new_ast, expr_ast):
                 if DEBUG:
-                    print "replaced! "
+                    print("replaced! ")
                     dispat = deepcopy(pattern)
                     dispat = Unflattening().visit(dispat)
-                    print "pattern:  ", unparse(dispat)
+                    print("pattern:  ", unparse(dispat))
                     disnew = deepcopy(new_ast)
                     disnew = Unflattening().visit(disnew)
-                    print "after:    ", unparse(disnew)
-                    print ""
+                    print("after:    ", unparse(disnew))
+                    print("")
                 expr_ast = new_ast
                 break
         # bitwise simplification: this is a ugly hack, should be
@@ -114,8 +114,8 @@ class Simplifier(ast.NodeTransformer):
         expr_ast = asttools.ConstFolding(expr_ast, self.nbits).visit(expr_ast)
         expr_ast = Unflattening().visit(expr_ast)
         if DEBUG:
-            print "after PM: "
-            print unparse(expr_ast)
+            print("after PM: ")
+            print(unparse(expr_ast))
         return expr_ast
 
     def loop_simplify(self, node):
@@ -147,15 +147,15 @@ class Simplifier(ast.NodeTransformer):
                 copyvalue = Flattening().visit(copyvalue)
                 old_value = Flattening().visit(old_value)
             if DEBUG:
-                print "-"*80
+                print("-"*80)
         # final arithmetic simplification to clean output of matching
         node.value = arithm_simpl.run(node.value, self.nbits)
         asttools.GetConstMod(self.nbits).visit(node.value)
         if DEBUG:
-            print "arithm simpl: "
-            print unparse(node.value)
-            print ""
-            print "-"*80
+            print("arithm simpl: ")
+            print(unparse(node.value))
+            print("")
+            print("-"*80)
         return node
 
     def visit_Assign(self, node):

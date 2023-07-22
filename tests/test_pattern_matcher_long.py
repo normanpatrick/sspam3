@@ -4,7 +4,7 @@
 
 import unittest
 
-from templates import PatternMatcherTest
+from .templates import PatternMatcherTest
 
 
 class TestPatternMatcherLong(PatternMatcherTest):

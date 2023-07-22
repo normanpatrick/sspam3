@@ -321,7 +321,7 @@ def simple_cse(node, operators=BINARY_OPERATORS):
                 combinations[term] = list(itertools.combinations(term, 2))
                 for pair in combinations[term]:
                     frequency[pair] = frequency.get(pair, 0) + 1
-            max_pair, _ = max(frequency.items(), key=lambda x: x[1])
+            max_pair, _ = max(list(frequency.items()), key=lambda x: x[1])
             if frequency[max_pair] > 1:
                 new_terms = []
                 for term in terms:
@@ -421,10 +421,10 @@ def apply_cse(expr, outputfile=None):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2 or len(sys.argv) > 3:
-        print "Usage: %s <input file> [output file]" % sys.argv[0]
+        print("Usage: %s <input file> [output file]" % sys.argv[0])
         exit(0)
 
     if len(sys.argv) == 2:
-        print apply_cse(sys.argv[1])[0]
+        print(apply_cse(sys.argv[1])[0])
     if len(sys.argv) == 3:
-        print apply_cse(sys.argv[1], sys.argv[2])[0]
+        print(apply_cse(sys.argv[1], sys.argv[2])[0])

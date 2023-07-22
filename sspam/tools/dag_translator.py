@@ -114,7 +114,7 @@ class DAGTranslator(ast.NodeVisitor):
 
     def visit_Name(self, node):
         'Create node if variable, else replace by corresponding value'
-        if node.id in self.subexpr.keys():
+        if node.id in list(self.subexpr.keys()):
             return self.subexpr[node.id]
         if node.id not in self.graph:
             self.graph.add_node(node.id)
@@ -183,9 +183,9 @@ def main(argv):
         graph.layout(prog="dot")
         graph.draw("%s.pdf" % filename)
 
-    print "Number of nodes:", len(graph)
-    print "Alternation of types:", visitor.alternation
-    print "your output is named:", filename
+    print("Number of nodes:", len(graph))
+    print("Alternation of types:", visitor.alternation)
+    print("your output is named:", filename)
     return graph
 
 
